@@ -7,9 +7,14 @@ export class UserController {
 
     static getAll= async (req:Request, res:Response)=>{
         const userRepository = getRepository(User);
-        const user = await userRepository.find();
-        if(user.length > 0 ){
-            res.send(user);
+        let users:User[];
+        try {
+            users = await userRepository.find();   
+        } catch (error) {
+            res.status(500).json({message:'Somenthing goes wrong!'});
+        }        
+        if(users.length > 0 ){
+            res.send(users);
         }else{
             res.status(404).json({message:'Not result'});
         }
@@ -27,19 +32,16 @@ export class UserController {
     }
 
     static newUser = async(req:Request, res:Response) => {
-        const {username, password, role} = req.body;
-        console.log(username, password, role);
+        const {username, password, role} = req.body;        
         const user = new User();
         user.username = username;
         user.password = password;
         user.role = role;
-        // validate 
         const validationOptions = {validationError:{target:false, value:false}};
         const errors =await validate(user,validationOptions);
         if(errors.length){
-            return res.status(400).json(errors);
+            return res.status(400).json(errors);        
         }
-        //@todo hash password
         const userRepository = getRepository(User);
         try{
             user.hashPassword();
