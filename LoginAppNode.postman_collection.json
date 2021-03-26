@@ -13,21 +13,20 @@
 					{
 						"key": "auth",
 						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiZWRpdG9yQHRlc3Rlci5jb20uYXIiLCJpYXQiOjE2MTY3MjY3MzMsImV4cCI6MTYxNjczMDMzM30.N8QINleQ_Fw8k5LNDmu2tZw7VQws_pYRACkPqZ2xDjc",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					},
 					{
 						"key": "auth",
 						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNjcyNjgzNiwiZXhwIjoxNjE2NzMwNDM2fQ.PY68jQNbvwuDdIdMgGxV1XZrDllTSe7zJipz9-4G5bs",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/users",
+					"raw": "{endpoint}/users",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"users"
 					]
@@ -41,11 +40,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/users/12",
+					"raw": "{endpoint}/users/12",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"users",
 						"12"
@@ -81,11 +79,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/users",
+					"raw": "{endpoint}/users",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"users"
 					]
@@ -114,11 +111,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/users/3",
+					"raw": "{endpoint}/users/3",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"users",
 						"3"
@@ -133,11 +129,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/users/3",
+					"raw": "{endpoint}/users/3",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"users",
 						"3"
@@ -161,11 +156,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/auth/login",
+					"raw": "{endpoint}/auth/login",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"auth",
 						"login"
@@ -202,11 +196,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/auth/reset",
+					"raw": "{endpoint}/auth/reset",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"auth",
 						"reset"
@@ -230,11 +223,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/auth/login",
+					"raw": "{endpoint}/auth/login",
 					"host": [
-						"localhost"
+						"{endpoint}"
 					],
-					"port": "3000",
 					"path": [
 						"auth",
 						"login"
