@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "5597a0b3-b5a9-4789-bcc1-089b01edd90b",
+		"name": "LoginAppNode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiZWRpdG9yQHRlc3Rlci5jb20uYXIiLCJpYXQiOjE2MTY3MjY3MzMsImV4cCI6MTYxNjczMDMzM30.N8QINleQ_Fw8k5LNDmu2tZw7VQws_pYRACkPqZ2xDjc",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNjcyNjgzNiwiZXhwIjoxNjE2NzMwNDM2fQ.PY68jQNbvwuDdIdMgGxV1XZrDllTSe7zJipz9-4G5bs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/12",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiY2FybG9zcmFtaXIiLCJpYXQiOjE2MTY3MTk0NzIsImV4cCI6MTYxNjcyMzA3Mn0.jXdN72ycljPV05MCBEnyRP5klv2M7jxCiTXlXo-fwXg",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInVzZXJuYW1lIjoiY2FybG9zZWRpdG9yIiwiaWF0IjoxNjE2NzIwMzgxLCJleHAiOjE2MTY3MjM5ODF9.IyX9-ljayqb4J_NRJqGy4ixqdRtBdYc66tIRe9hlfiQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"username\":\"carloseditor\",\n    \"password\":\"tester\",\n    \"role\":\"editor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH user",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiY2FybG9zcmFtaXIiLCJpYXQiOjE2MTY3MTk0NzIsImV4cCI6MTYxNjcyMzA3Mn0.jXdN72ycljPV05MCBEnyRP5klv2M7jxCiTXlXo-fwXg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"car\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"tester@tester.com\",\n    \"password\":\"tester\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST reset password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiY2FybG9zcmFtaXIiLCJpYXQiOjE2MTY3MTk0NzIsImV4cCI6MTYxNjcyMzA3Mn0.jXdN72ycljPV05MCBEnyRP5klv2M7jxCiTXlXo-fwXg",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInVzZXJuYW1lIjoiY2FybG9zZWRpdG9yIiwiaWF0IjoxNjE2NzIwMzgxLCJleHAiOjE2MTY3MjM5ODF9.IyX9-ljayqb4J_NRJqGy4ixqdRtBdYc66tIRe9hlfiQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"oldPassword\":\"tester\",\n    \"newPassword\":\"testar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/reset",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"admin@tester.com.ar\",\n    \"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login Editor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"editor@tester.com.ar\",\n    \"password\":\"editor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
