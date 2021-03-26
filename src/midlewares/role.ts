@@ -10,12 +10,12 @@ export const checkRole = (roles:Array<string>,) => {
         try {
             user = await userRepository.findOneOrFail(userId);            
         } catch (error) {
-            return res.status(401).json({message:'Not Authorize!'});
+            return res.status(401).json({message:'User not found!'});
         } 
-        const {role} = user;
-        if(roles.includes(role)){
-            next();
-        }
-        return res.status(401).json({message:'Not Authorized'});
+        const {role} = user;        
+        if(!roles.includes(role)){
+            return res.status(401).json({message:'Rol Not Authorized'});    
+        }        
+        next();
     }
 }

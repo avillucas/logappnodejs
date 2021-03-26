@@ -5,6 +5,7 @@
    "devDependencies": {
       "@types/bcryptjs": "^2.4.2",
       "@types/cors": "^2.8.10",
+      "@types/faker": "^5.1.7",
       "@types/jsonwebtoken": "^8.5.1",
       "@types/node": "^8.10.66",
       "ts-node": "3.3.0",
@@ -20,11 +21,16 @@
       "jsonwebtoken": "^8.5.1",
       "mysql": "^2.14.1",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.31"
+      "typeorm": "0.2.31",
+      "typeorm-seeding": "^1.6.1"
    },
    "scripts": {
       "start": "ts-node src/index.ts",
       "tsc": "tsc",
-      "dev": "set debug=* && ts-node-dev --respawn --transpile-only ./src/index.ts"
+      "dev": "set debug=* && ts-node-dev --respawn --transpile-only ./src/index.ts",
+      "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+      "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
+      "schema:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop",
+      "schema:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync"
    }
 }

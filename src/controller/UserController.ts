@@ -35,7 +35,7 @@ export class UserController {
         const {username, password, role} = req.body;        
         const user = new User();
         user.username = username;
-        user.password = password;
+        user.setPassword(password);
         user.role = role;
         const validationOptions = {validationError:{target:false, value:false}};
         const errors =await validate(user,validationOptions);
@@ -44,7 +44,6 @@ export class UserController {
         }
         const userRepository = getRepository(User);
         try{
-            user.hashPassword();
             await userRepository.save(user);
         }catch(e){
             return res.status(409).json({message:'User already exists!'});

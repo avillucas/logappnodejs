@@ -47,7 +47,7 @@ class AuthController{
         if( errors.length){
             return res.status(401).json({errors});
         }
-        user.hashPassword();        
+        user.setPassword(newPassword);
         userRepository.save(user);        
         res.json({message:'Password changed!'});        
     }
