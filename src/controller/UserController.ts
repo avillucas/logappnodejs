@@ -34,13 +34,15 @@ export class UserController {
         user.password = password;
         user.role = role;
         // validate 
-        const errors =await validate(user);
+        const validationOptions = {validationError:{target:false, value:false}};
+        const errors =await validate(user,validationOptions);
         if(errors.length){
             return res.status(400).json(errors);
         }
         //@todo hash password
         const userRepository = getRepository(User);
         try{
+            user.hashPassword();
             await userRepository.save(user);
         }catch(e){
             return res.status(409).json({message:'User already exists!'});
@@ -58,7 +60,8 @@ export class UserController {
         }catch(e){
             res.status(404).json({message:'User not found!'});
         }
-        const errors =await validate(user);           
+        const validationOptions = {validationError:{target:false, value:false}};
+        const errors =await validate(user,validationOptions);           
         if(errors.length){
             return res.status(400).json(errors);
         }
