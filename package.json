@@ -12,8 +12,7 @@
       "@types/faker": "^5.1.7",
       "@types/jsonwebtoken": "^8.5.1",
       "@types/node": "^8.10.66",
-      "ts-node-dev": "^1.1.6",
-      "typescript": "^3.9.9"
+      "ts-node-dev": "^1.1.6"
    },
    "dependencies": {
       "bcryptjs": "^2.4.3",
@@ -27,7 +26,8 @@
       "reflect-metadata": "^0.1.10",
       "ts-node": "3.3.0",
       "typeorm": "0.2.31",
-      "typeorm-seeding": "^1.6.1"
+      "typeorm-seeding": "^1.6.1",
+      "typescript": "^3.9.9"
    },
    "scripts": {
       "start": "ts-node src/index.ts",
