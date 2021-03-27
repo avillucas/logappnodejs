@@ -7,7 +7,18 @@ import routes from './routes';
 
 const PORT = process.env.PORT || 3000; 
 
-createConnection().then(async connection => {
+createConnection(
+    {        
+        type: "mysql",
+        url: process.env.DATABASE_URL,
+        synchronize: true,
+        logging: true,
+        entities: ["src/entity/*.*"],
+        extra: {
+          ssl: process.env.SSL || false,
+        }
+    }
+  ).then(async connection => {
 
     // create express app
     const app = express();
