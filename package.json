@@ -7,11 +7,6 @@
       "npm": "7.6.3"
    },
    "devDependencies": {
-      "@types/bcryptjs": "^2.4.2",
-      "@types/cors": "^2.8.10",
-      "@types/faker": "^5.1.7",
-      "@types/jsonwebtoken": "^8.5.1",
-      "@types/node": "^8.10.66",
       "ts-node-dev": "^1.1.6"
    },
    "dependencies": {
@@ -27,7 +22,12 @@
       "ts-node": "3.3.0",
       "typeorm": "0.2.31",
       "typeorm-seeding": "^1.6.1",
-      "typescript": "^3.9.9"
+      "typescript": "^3.9.9",
+      "@types/bcryptjs": "^2.4.2",
+      "@types/cors": "^2.8.10",
+      "@types/faker": "^5.1.7",
+      "@types/jsonwebtoken": "^8.5.1",
+      "@types/node": "^8.10.66"      
    },
    "scripts": {
       "start": "ts-node src/index.ts",
