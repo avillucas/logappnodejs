@@ -2,6 +2,10 @@
    "name": "login_roles",
    "version": "0.0.1",
    "description": "Awesome project developed with TypeORM.",
+   "engines": {
+      "node": "10.19.0",
+      "npm": "7.6.3"
+   },
    "devDependencies": {
       "@types/bcryptjs": "^2.4.2",
       "@types/cors": "^2.8.10",
