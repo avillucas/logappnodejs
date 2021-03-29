@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5597a0b3-b5a9-4789-bcc1-089b01edd90b",
+		"_postman_id": "010a591e-db4a-42e6-9b71-b62c33af1f4f",
 		"name": "LoginAppNode",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,14 +18,14 @@
 					},
 					{
 						"key": "auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNjcyNjgzNiwiZXhwIjoxNjE2NzMwNDM2fQ.PY68jQNbvwuDdIdMgGxV1XZrDllTSe7zJipz9-4G5bs",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNjgxMDY1OSwiZXhwIjoxNjE2ODE0MjU5fQ.qdyii4PUnVNCttrMXFdRo6PKpF1hdjZ3Iztzj2-1gdw",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{endpoint}/users",
+					"raw": "{{endpoint}}/users",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"users"
@@ -40,9 +40,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{endpoint}/users/12",
+					"raw": "{{endpoint}}/users/12",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"users",
@@ -59,7 +59,7 @@
 				"header": [
 					{
 						"key": "auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiY2FybG9zcmFtaXIiLCJpYXQiOjE2MTY3MTk0NzIsImV4cCI6MTYxNjcyMzA3Mn0.jXdN72ycljPV05MCBEnyRP5klv2M7jxCiTXlXo-fwXg",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNjgxMDY1OSwiZXhwIjoxNjE2ODE0MjU5fQ.qdyii4PUnVNCttrMXFdRo6PKpF1hdjZ3Iztzj2-1gdw",
 						"type": "text"
 					},
 					{
@@ -71,7 +71,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"username\":\"carloseditor\",\n    \"password\":\"tester\",\n    \"role\":\"editor\"\n}",
+					"raw": "{\n   \"username\":\"untester@tester.com\",\n   \"password\":\"testertester\",\n   \"role\":\"editor\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -79,9 +79,9 @@
 					}
 				},
 				"url": {
-					"raw": "{endpoint}/users",
+					"raw": "{{endpoint}}/users",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"users"
@@ -111,9 +111,9 @@
 					}
 				},
 				"url": {
-					"raw": "{endpoint}/users/3",
+					"raw": "{{endpoint}}/users/3",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"users",
@@ -129,9 +129,9 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{endpoint}/users/3",
+					"raw": "{{endpoint}}/users/3",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"users",
@@ -156,9 +156,9 @@
 					}
 				},
 				"url": {
-					"raw": "{endpoint}/auth/login",
+					"raw": "{{endpoint}}/auth/login",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"auth",
@@ -196,9 +196,9 @@
 					}
 				},
 				"url": {
-					"raw": "{endpoint}/auth/reset",
+					"raw": "{{endpoint}}/auth/reset",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"auth",
@@ -223,9 +223,9 @@
 					}
 				},
 				"url": {
-					"raw": "{endpoint}/auth/login",
+					"raw": "{{endpoint}}/auth/login",
 					"host": [
-						"{endpoint}"
+						"{{endpoint}}"
 					],
 					"path": [
 						"auth",
@@ -250,13 +250,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/auth/login",
+					"raw": "{{endpoint}}auth/login",
 					"host": [
-						"localhost"
+						"{{endpoint}}auth"
 					],
-					"port": "3000",
 					"path": [
-						"auth",
 						"login"
 					]
 				}
