@@ -30,7 +30,7 @@
       "typescript": "^3.9.9"
    },
    "scripts": {
-      "start": "ts-node src/index.ts",
+      "start": "ts-node ./src/index.ts",
       "tsc": "tsc",
       "dev": "set debug=* && ts-node-dev --respawn --transpile-only ./src/index.ts",
       "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",

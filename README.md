@@ -19,3 +19,10 @@ Steps to run this project:
 # Schema drop:
 
 1. Run `npm run schema:drop` command
+
+# DOCKER 
+. `docker-compose build --no-cache --force-rm`
+. `docker-compose up --force-recreate`
+. `docker-compose exec  app bash`
+
+
