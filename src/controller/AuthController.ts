@@ -25,6 +25,21 @@ class AuthController{
         return res.status(400).json({message:'The user or password are incorrect!'});        
     }   
 
+    static register = async(req:Request, res:Response) =>{
+        const {newUsername, newPassword} = req.body;           
+        const userRepository = getRepository(User);        
+        const validateOptions = {validationError:{target:false, value:false}};
+        let user:User;
+        user.username= newUsername;
+        user.setPassword(newPassword);
+        const errors = await validate(user, validateOptions);        
+        if( errors.length){
+            return res.status(401).json({errors});
+        }        
+        userRepository.save(user);        
+        res.json({message:'User created!'});        
+    }
+
     static changePassword = async(req:Request, res:Response) =>{
         const {userId} = res.locals.jwtPayload;
         const {oldPassword, newPassword} = req.body;
