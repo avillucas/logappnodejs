@@ -29,9 +29,10 @@ class AuthController{
         const {newUsername, newPassword} = req.body;           
         const userRepository = getRepository(User);        
         const validateOptions = {validationError:{target:false, value:false}};
-        let user:User;
-        user.username= newUsername;
+        const user = new User();
+        user.username = newUsername;
         user.setPassword(newPassword);
+        user.role = config.Roles.editor;
         const errors = await validate(user, validateOptions);        
         if( errors.length){
             return res.status(401).json({errors});
