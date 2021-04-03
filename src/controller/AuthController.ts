@@ -26,17 +26,17 @@ class AuthController{
     }   
 
     static register = async(req:Request, res:Response) =>{
-        const {username, password} = req.body;           
-        const userRepository = getRepository(User);        
-        const validateOptions = {validationError:{target:false, value:false}};
+        const {username, password} = req.body;          
         const user = new User();
         user.username = username;
-        user.setPassword(password);
         user.role = config.Roles.editor;
+        user.setPassword(password);        
+        const validateOptions = {validationError:{target:false, value:false}};
         const errors = await validate(user, validateOptions);        
         if( errors.length){
             return res.status(401).json({errors});
         }        
+        const userRepository = getRepository(User);        
         userRepository.save(user);        
         res.json({message:'User created!'});        
     }

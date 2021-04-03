@@ -18,17 +18,14 @@
 					},
 					{
 						"key": "auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNjgxMDY1OSwiZXhwIjoxNjE2ODE0MjU5fQ.qdyii4PUnVNCttrMXFdRo6PKpF1hdjZ3Iztzj2-1gdw",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNzMyMDk1MCwiZXhwIjoxNjE3MzI0NTUwfQ.Pekd9LiyvuEoQkGgqZF7OmaF8V63pexLSajrqHJHaJk",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{endpoint}}/users",
+					"raw": "{{endpoint}}users",
 					"host": [
-						"{{endpoint}}"
-					],
-					"path": [
-						"users"
+						"{{endpoint}}users"
 					]
 				}
 			},
@@ -111,12 +108,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{endpoint}}/users/3",
+					"raw": "{{endpoint}}users/3",
 					"host": [
-						"{{endpoint}}"
+						"{{endpoint}}users"
 					],
 					"path": [
-						"users",
 						"3"
 					]
 				}
@@ -129,12 +125,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{endpoint}}/users/3",
+					"raw": "{{endpoint}}users/3",
 					"host": [
-						"{{endpoint}}"
+						"{{endpoint}}users"
 					],
 					"path": [
-						"users",
 						"3"
 					]
 				}
@@ -156,12 +151,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{endpoint}}/auth/login",
+					"raw": "{{endpoint}}auth/login",
 					"host": [
-						"{{endpoint}}"
+						"{{endpoint}}auth"
 					],
 					"path": [
-						"auth",
 						"login"
 					]
 				}
@@ -196,12 +190,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{endpoint}}/auth/reset",
+					"raw": "{{endpoint}}auth/reset",
 					"host": [
-						"{{endpoint}}"
+						"{{endpoint}}auth"
 					],
 					"path": [
-						"auth",
 						"reset"
 					]
 				}
@@ -215,7 +208,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"admin@tester.com.ar\",\n    \"password\":\"admin\"\n}",
+					"raw": "{\n    \"username\":\"admin@tester.com.ar\",\n    \"password\":\"admin\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -223,12 +216,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{endpoint}}/auth/login",
+					"raw": "{{endpoint}}auth/login",
 					"host": [
-						"{{endpoint}}"
+						"{{endpoint}}auth"
 					],
 					"path": [
-						"auth",
 						"login"
 					]
 				}
@@ -256,6 +248,32 @@
 					],
 					"path": [
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"username\":\"untester@tester.com\",\n   \"password\":\"testertester\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}auth/register",
+					"host": [
+						"{{endpoint}}auth"
+					],
+					"path": [
+						"register"
 					]
 				}
 			},
