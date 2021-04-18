@@ -3,7 +3,9 @@ export default {
     authHeader:"auth",
     Roles: {
          admin:"admin",
-         editor:"editor"
+         invitado:"invitado",
+         usuario:"usuario",
+         tester:"tester"
     },
 
 }
