@@ -25,4 +25,10 @@ Steps to run this project:
 . `docker-compose up --force-recreate`
 . `docker-compose exec  app bash`
 
+# HEROKU
+* guia del cliente https://devcenter.heroku.com/articles/heroku-cli
 
+* iniciar el server `heroku ps:scale web=1`
+* correr la aplicación `heroku open`
+* ver el log `heroku logs --tail`
+* correr en local : `heroku local`

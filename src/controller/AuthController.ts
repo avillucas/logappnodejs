@@ -30,7 +30,7 @@ class AuthController {
         const user = new User();
         user.username = username;
         user.password = password;
-        user.role = config.Roles.editor;
+        user.role = config.Roles.usuario;
         const validateOptions = { validationError: { target: false, value: false } };
         const errors = await validate(user, validateOptions);
         if (errors.length) {
