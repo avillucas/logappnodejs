@@ -208,7 +208,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"admin@tester.com.ar\",\n    \"password\":\"admin\"\n}\n",
+					"raw": "{\n    \"username\":\"admin@admin.com\",\n    \"password\":\"1111\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -228,13 +228,13 @@
 			"response": []
 		},
 		{
-			"name": "POST Login Editor",
+			"name": "POST Login Invitado",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"editor@tester.com.ar\",\n    \"password\":\"editor\"\n}",
+					"raw": "{\n    \"username\":\"invitado@invitado.com\",\n    \"password\":\"2222\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -260,7 +260,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"username\":\"untester@tester.com\",\n   \"password\":\"testertester\" \n}",
+					"raw": "{\n   \"username\":\"untester@tester.com\",\n   \"password\":\"testertester\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -274,6 +274,84 @@
 					],
 					"path": [
 						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"usuario@usuario.com\",\n    \"password\":\"3333\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}auth/login",
+					"host": [
+						"{{endpoint}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login Anonimo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"anonimo@anonimo.com\",\n    \"password\":\"4444\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}auth/login",
+					"host": [
+						"{{endpoint}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login Tester",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"tester@tester.com\",\n    \"password\":\"5555\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}auth/login",
+					"host": [
+						"{{endpoint}}auth"
+					],
+					"path": [
+						"login"
 					]
 				}
 			},
