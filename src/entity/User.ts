@@ -30,6 +30,10 @@ export class User {
     @Column({ nullable: false })
     @IsNotEmpty()
     role: string;
+    
+    @Column({ nullable: false })
+    @IsNotEmpty()
+    dni: string;
 
     @Column({ nullable: false, type:'varchar', default:'F', length:1 })    
     @MinLength(1)

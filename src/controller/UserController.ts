@@ -7,18 +7,18 @@ export class UserController {
 
     static getAll= async (req:Request, res:Response)=>{
         const userRepository = getRepository(User);
-        let users:User[];
+        let result: [User[],number];
         try {
-            users = await userRepository.find();   
+            result =  await userRepository.findAndCount({select:['id','role','name','surname','createdAt','sexo','username','dni']});
         } catch (error) {
             res.status(500).json({message:'Somenthing goes wrong!'});
         }        
-        if(users.length > 0 ){
-            res.send(users);
+        if(result.length > 0 ){
+            res.send({'list':result[0] , 'total':result[1] });
         }else{
             res.status(404).json({message:'Not result'});
         }
-    }
+    }   
 
     static getById= async (req:Request, res:Response)=>{
         const {id}  = req.params;
@@ -32,9 +32,13 @@ export class UserController {
     }
 
     static newUser = async(req:Request, res:Response) => {
-        const {username, password, role} = req.body;        
+        const {username, password, name, surname, role, sexo,  dni} = req.body;        
         const user = new User();
         user.username = username;
+        user.name = name;
+        user.surname = surname;
+        user.sexo = sexo;
+        user.dni = dni;        
         user.setPassword(password);
         user.role = role;
         const validationOptions = {validationError:{target:false, value:false}};
