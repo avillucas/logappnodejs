@@ -6,6 +6,7 @@ import config from '../config/config';
 import { validate } from 'class-validator';
 
 class AuthController {
+    
     static login = async (req: Request, res: Response) => {
         const { username, password } = req.body;
         if (!(username && password)) {
@@ -26,10 +27,12 @@ class AuthController {
     }
 
     static register = async (req: Request, res: Response) => {
-        const { username, password } = req.body;
+        const { username, password, name, surname } = req.body;
         const user = new User();
         user.username = username;
         user.password = password;
+        user.name = name;
+        user.surname = surname;
         user.role = config.Roles.usuario;
         const validateOptions = { validationError: { target: false, value: false } };
         const errors = await validate(user, validateOptions);
@@ -71,6 +74,16 @@ class AuthController {
         user.setPassword(newPassword);
         userRepository.save(user);
         res.json({ message: 'Password changed!' });
+    }
+
+    static list = async (req: Request, res: Response) => {
+        const userRepository = getRepository(User);
+        let result: [User[],number];
+        try {
+            result = await userRepository.findAndCount({select:['id','role','name','surname','createdAt','sexo','username']});
+        } catch (e) {
+        }
+        return res.status(400).json({  'users':result[0] , 'total':result[1] });
     }
 }
 export default AuthController;

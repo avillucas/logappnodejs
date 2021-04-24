@@ -8,6 +8,14 @@ export class User {
 
     @PrimaryGeneratedColumn()
     id: number;
+    
+    @Column({nullable: false })
+    @MinLength(4)    
+    name: string;
+
+    @Column({nullable: false })
+    @MinLength(4)    
+    surname: string;
 
     @Column({nullable: false })
     @MinLength(6)
