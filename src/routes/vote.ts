@@ -6,6 +6,6 @@ import config from '../config/config';
 
 const router = Router();
 //new
-router.post('/', [checkJwt, checkRole([config.Roles.admin])], VoteController.new);
+router.post('/', [checkJwt], VoteController.new);
 
 export default router;

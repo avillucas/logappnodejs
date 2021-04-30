@@ -1,23 +1,25 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne, JoinColumn, CreateDateColumn, OneToMany } from 'typeorm';
-import { Photo } from './Photo';
 import { User } from './User';
+import { IsNotEmpty, Min } from 'class-validator';
 
 @Entity()
-export class Vote {   
+export class Charge {   
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Photo, photo => {photo.votes})
+    @ManyToOne(() => User, user=> user.credits)
     @JoinColumn()
-    photo: Photo;
+    owner: User;
+    
+    @Column()
+    @IsNotEmpty()
+    @Min(1)
+    credit: number;
 
-    @Column({nullable: false })    
-    like: boolean;
-
-    @ManyToOne(() => User,{  eager: true})
-    @JoinColumn()
-    voter: User;
+    @Column()
+    @IsNotEmpty()    
+    rechargeCode:string;
 
     @Column()
     @CreateDateColumn()

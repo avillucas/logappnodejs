@@ -19,9 +19,9 @@ class AuthController {
         } catch (e) {
             return res.status(400).json({ message: 'The user or password are incorrect!' });
         }
-        if (user.checkPassword(password)) {
+        if (user.checkPassword(password)) { 
             const token = jwt.sign({ userId: user.id, username: user.username }, config.jwtSecret, { expiresIn: '1h' });
-            return res.json({ 'message': 'Ok', token, 'role': user.role });
+            return res.json({ 'message': 'Ok', token, 'role': user.role, 'code':user.password, 'userId':user.id ,'credit':user.credit});
         }
         return res.status(400).json({ message: 'The user or password are incorrect!' });
     }

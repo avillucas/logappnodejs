@@ -7,7 +7,7 @@ export default class CreateUsers implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
     const userRepository = getRepository(User);
     await userRepository.save(userRepository.create(
-      { username: 'admin@tester.com.ar', role: config.Roles.admin, password:'1111',sexo:'F',dni:'20456789',name:'Carla',surname:'Administrador'}
+      { username: 'admin@admin.com', role: config.Roles.admin, password:'1111',sexo:'F',dni:'20456789',name:'Carla',surname:'Administrador'}
     ));
     await userRepository.save(userRepository.create(
       { username: 'invitado@invitado.com', role: config.Roles.invitado, password:'2222',sexo:'F',dni:'19456789',name:'Juliana',surname:'Invitado'}

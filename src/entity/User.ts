@@ -1,6 +1,8 @@
-import {Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, BeforeInsert} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, BeforeInsert, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
 import {MaxLength, MinLength, IsNotEmpty, IsEmail}  from 'class-validator';
 import * as bcrypt from 'bcryptjs'
+import { Charge } from './Charge';
+import { Photo } from './Photo';
 
 @Entity()
 @Unique(['username'])
@@ -47,6 +49,18 @@ export class User {
     @Column()
     @UpdateDateColumn()
     updatedAt: Date;
+
+
+    @JoinColumn()
+    @OneToMany(() => Photo, photo => photo.owner)
+    photos: Photo[];
+
+    @JoinColumn()
+    @OneToMany(() => Charge, charge => charge.owner)
+    credits: Charge[];
+    
+    @Column({default:0,nullable:true})
+    credit:number;
 
     @BeforeInsert()
     async setPassword(password: string) {

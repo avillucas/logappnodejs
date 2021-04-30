@@ -14,7 +14,7 @@ export class VoteController {
         const user = await getRepository(User).findOne(userId);
         const photo = await getRepository(Photo).findOne(photoId);
         //
-        const vote = new Vote();
+        let vote = new Vote();
         vote.photo = photo;
         vote.voter = user;
         vote.like = votePositive as boolean;

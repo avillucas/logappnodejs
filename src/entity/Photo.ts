@@ -1,5 +1,5 @@
 import { User } from './User';
-import {Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, OneToOne, JoinColumn, OneToMany} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, OneToOne, JoinColumn, OneToMany, ManyToOne } from 'typeorm';
 import { MinLength}  from 'class-validator';
 import { Vote } from './Vote';
 
@@ -14,11 +14,12 @@ export class Photo {
     @MinLength(4)    
     url: string;
 
-    @OneToOne(() => User,{  eager: true})
+    @ManyToOne(() => User, user => user.photos)
     @JoinColumn()
     owner: User;
 
     @OneToMany(() => Vote, vote => vote.photo,{  eager: true})
+    @JoinColumn()
     votes: Vote[];
 
 
