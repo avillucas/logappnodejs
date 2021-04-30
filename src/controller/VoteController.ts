@@ -28,6 +28,16 @@ export class VoteController {
         }catch(e){
             return res.status(409).json({message:'Vote could not be created!'});
         }    
+        if(votePositive){
+            photo.likes += 1;
+        }else{
+            photo.dislikes += 1;
+        }
+        try{          
+            await getRepository(Photo).save(photo);        
+        }catch(e){
+            return res.status(409).json({message:'Vote could not be created!'});
+        }    
         res.status(201).json({message:'Vote created!',user:user});
     }   
     

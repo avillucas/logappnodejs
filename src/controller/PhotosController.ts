@@ -1,6 +1,6 @@
 import {getRepository,  Not} from "typeorm";
 import {Request, Response} from "express";
-import {validate} from 'class-validator';
+import {isPositive, validate} from 'class-validator';
 import { Photo } from '../entity/Photo';
 import { User } from '../entity/User';
 import { Vote } from '../entity/Vote';
@@ -42,6 +42,11 @@ export class PhotosController {
         let photo = new Photo();
         photo.owner = user;
         photo.url = url;    
+        if(votePositive){
+            photo.likes = 1;
+        }else{
+            photo.dislikes = 1;
+        }
         const photErrors =await validate(photo,validationOptions);    
         if(photErrors.length){
             return res.status(400).json(photErrors);        
