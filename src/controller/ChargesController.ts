@@ -14,7 +14,8 @@ export class ChagersController {
 
    static getUserList= async (req:Request, res:Response)=>{
     const limit = 20;
-    const {userId, page }  = req.params;
+    const userId = req.userId;
+    const { page }  = req.params;
     const offset = ( parseInt(page) -1) * limit    
     const user = getRepository(User).findOne(userId);
     let result: [Charge[],number];
@@ -36,7 +37,8 @@ export class ChagersController {
    //POST 
    static new = async(req:Request, res:Response) => {
         const validationOptions = {validationError:{target:false, value:false}};
-        const {credit,code , userId}  = req.body;        
+        const userId = req.userId;
+        const {credit,code }  = req.body;        
         let user:User;
         try{
            user = await getRepository(User).findOne(userId);    

@@ -18,8 +18,7 @@ export class PhotosController {
     const offset = ( parseInt(page) -1) * limit    
     const user = getRepository(User).findOne(userId);
     let result: [Photo[],number];
-        try{
-            //@todo probar
+        try{            
             result =  await getRepository(Photo).findAndCount({            
                 where:{
                     owner: Not(userId)
@@ -36,7 +35,8 @@ export class PhotosController {
    //POST 
    static new = async(req:Request, res:Response) => {
         const validationOptions = {validationError:{target:false, value:false}};
-        const {url, userId, votePositive} = req.body;        
+        const userId = req.userId;
+        const {url,  votePositive} = req.body;        
         const user = await getRepository(User).findOne(userId);
         //
         let photo = new Photo();

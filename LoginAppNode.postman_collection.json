@@ -18,7 +18,7 @@
 					},
 					{
 						"key": "auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AdGVzdGVyLmNvbS5hciIsImlhdCI6MTYxNzMyMDk1MCwiZXhwIjoxNjE3MzI0NTUwfQ.Pekd9LiyvuEoQkGgqZF7OmaF8V63pexLSajrqHJHaJk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjE5NzUxOTU5LCJleHAiOjE2MTk3NTU1NTl9.kxLB_qOAKKcM6DxJUmY73NVdTCvvs5ItYQi6Ooer4BI",
 						"type": "text"
 					}
 				],
@@ -68,7 +68,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"username\":\"untester@tester.com\",\n   \"password\":\"testertester\",\n   \"role\":\"editor\"\n}",
+					"raw": "{\n   \"username\":\"untester@tester.com\",\n   \"password\":\"testertester\",\n   \"role\":\"editor\",\n   \"dni\":\"123132\",\n   \"nombre\":\"nombre\",\n   \"apellido\":\"aperllido\",\n   \"sexo\":\"F\"\n\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -356,8 +356,159 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET photos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE0LCJ1c2VybmFtZSI6Imludml0YWRvQGludml0YWRvLmNvbSIsImlhdCI6MTYxOTc1Mzc5MywiZXhwIjoxNjE5NzU3MzkzfQ.ZOgHEEmyH7atWEMH9iEOVFKaLWhKa__4hhc13csho0A"
+					},
+					{
+						"key": "auth",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjE5NzUxOTU5LCJleHAiOjE2MTk3NTU1NTl9.kxLB_qOAKKcM6DxJUmY73NVdTCvvs5ItYQi6Ooer4BI",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{endpoint}}photos/1",
+					"host": [
+						"{{endpoint}}photos"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST photo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjE5NzU1ODE3LCJleHAiOjE2MTk3NTk0MTd9.hSdH8JtoUebVA8ci83cXDeJc3QLGMc_17trWk-SMrnU",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE0LCJ1c2VybmFtZSI6Imludml0YWRvQGludml0YWRvLmNvbSIsImlhdCI6MTYxOTc1Mzc5MywiZXhwIjoxNjE5NzU3MzkzfQ.ZOgHEEmyH7atWEMH9iEOVFKaLWhKa__4hhc13csho0A",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"url\":\"https://orkhan.gitbook.io/typeorm/docs/relatioaaans\",   \n   \"votePositive\":false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}photos",
+					"host": [
+						"{{endpoint}}photos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST vote",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjE5NzU1ODE3LCJleHAiOjE2MTk3NTk0MTd9.hSdH8JtoUebVA8ci83cXDeJc3QLGMc_17trWk-SMrnU",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInVzZXJuYW1lIjoiY2FybG9zZWRpdG9yIiwiaWF0IjoxNjE2NzIwMzgxLCJleHAiOjE2MTY3MjM5ODF9.IyX9-ljayqb4J_NRJqGy4ixqdRtBdYc66tIRe9hlfiQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"photoId\":4,  \n   \"votePositive\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}votes",
+					"host": [
+						"{{endpoint}}votes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Charge",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjE5NzU1ODE3LCJleHAiOjE2MTk3NTk0MTd9.hSdH8JtoUebVA8ci83cXDeJc3QLGMc_17trWk-SMrnU"
+					},
+					{
+						"key": "auth",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInVzZXJuYW1lIjoiY2FybG9zZWRpdG9yIiwiaWF0IjoxNjE2NzIwMzgxLCJleHAiOjE2MTY3MjM5ODF9.IyX9-ljayqb4J_NRJqGy4ixqdRtBdYc66tIRe9hlfiQ",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"code\":\"8c95def646b6127282ed50454b73240300dccabc\",\n   \"credit\":10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}charge",
+					"host": [
+						"{{endpoint}}charge"
+					]
+				}
+			},
+			"response": []
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjE5ODIxNTI0LCJleHAiOjE2MTk4MjUxMjR9.64kq2XzAs5Z1Z_Qkqrv9LpDDnv_xbWPc8jysS6glEns",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
