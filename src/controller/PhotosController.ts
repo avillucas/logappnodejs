@@ -30,7 +30,9 @@ export class PhotosController {
             });
             if(result[0].length){
                 result[0].map((photo)=>{
-                    photo.votado = (userId == photo.owner.id)
+                    //filtrar el que este votado
+                    const voto = photo.votes.filter(vote=>{ return vote.voter === userId });
+                    photo.votado = (voto.length > 0);
                     return photo;
                 });
             }
