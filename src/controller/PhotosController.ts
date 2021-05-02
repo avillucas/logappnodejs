@@ -4,7 +4,6 @@ import {isPositive, validate} from 'class-validator';
 import { Photo } from '../entity/Photo';
 import { User } from '../entity/User';
 import { Vote } from '../entity/Vote';
-import { count } from "console";
 
 export class PhotosController {
 
@@ -27,15 +26,14 @@ export class PhotosController {
                 order:{createdAt:"DESC"},
                 skip: offset,
                 take:limit,
-            });
+            });            
             if(result[0].length){
-                result[0].map((photo)=>{
+                result[0].map((photo)=>{                    
                     //filtrar el que este votado
-                    const voto = photo.votes.filter(vote=>{                        
+                    const voto = photo.votes.filter(vote=>{                                                                       
                         return vote.voter.id === userId
-                    });
-                    console.log(voto);
-                    photo.votado = (voto.length > 0);
+                    });                                        
+                    photo.votado = (voto.length > 0);                    
                     return photo;
                 });
             }
