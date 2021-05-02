@@ -31,4 +31,6 @@ export class Photo {
     @Column()
     @CreateDateColumn()
     createdAt: Date;
+
+    votado?:boolean;
 }

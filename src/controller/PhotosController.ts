@@ -4,6 +4,7 @@ import {isPositive, validate} from 'class-validator';
 import { Photo } from '../entity/Photo';
 import { User } from '../entity/User';
 import { Vote } from '../entity/Vote';
+import { count } from "console";
 
 export class PhotosController {
 
@@ -26,7 +27,13 @@ export class PhotosController {
                 order:{createdAt:"DESC"},
                 skip: offset,
                 take:limit,
-            });                                    
+            });
+            if(result[0].length){
+                result[0].map((photo)=>{
+                    photo.votado = (userId == photo.owner.id)
+                    return photo;
+                });
+            }
             res.send({'list':result[0] , 'total':result[1], "page":parseInt(page)  , limit, totalPages: (result[1]/limit) as number });            
         }catch(e){
             res.status(404).json({message:'No result'});
