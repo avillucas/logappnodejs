@@ -31,7 +31,10 @@ export class PhotosController {
             if(result[0].length){
                 result[0].map((photo)=>{
                     //filtrar el que este votado
-                    const voto = photo.votes.filter(vote=>{ return vote.voter === userId });
+                    const voto = photo.votes.filter(vote=>{                        
+                        return vote.voter.id === userId
+                    });
+                    console.log(voto);
                     photo.votado = (voto.length > 0);
                     return photo;
                 });
