@@ -11,7 +11,7 @@ export class VoteController {
    static new = async(req:Request, res:Response) => {
         const validationOptions = {validationError:{target:false, value:false}};    
         const userId = req.userId;
-        const {photoId, votePositive} = req.body;        
+        const {votePositive,photoId} = req.body;        
         const user = await getRepository(User).findOneOrFail(userId);
         const photo = await getRepository(Photo).findOneOrFail(photoId);
         //
