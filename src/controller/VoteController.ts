@@ -12,8 +12,8 @@ export class VoteController {
         const validationOptions = {validationError:{target:false, value:false}};    
         const userId = req.userId;
         const {photoId, votePositive} = req.body;        
-        const user = await getRepository(User).findOne(userId);
-        const photo = await getRepository(Photo).findOne(photoId);
+        const user = await getRepository(User).findOneOrFail(userId);
+        const photo = await getRepository(Photo).findOneOrFail(photoId);
         //
         let vote = new Vote();
         vote.photo = photo;
@@ -39,7 +39,7 @@ export class VoteController {
         }catch(e){
             return res.status(409).json({message:'Vote could not be created!'});
         }    
-        res.status(201).json({message:'Vote created!',user:user});
+        res.status(201).json({message:'Vote created!',vote});
     }   
     
 }
