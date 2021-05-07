@@ -39,7 +39,7 @@ export class UserController {
         user.surname = surname;
         user.sexo = sexo;
         user.dni = dni;        
-        user.setPassword(password);
+        user.password = password;          
         user.role = role;
         const validationOptions = {validationError:{target:false, value:false}};
         const errors =await validate(user,validationOptions);
