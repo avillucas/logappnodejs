@@ -9,7 +9,14 @@ export class UserController {
         const userRepository = getRepository(User);
         let result: [User[],number];
         try {
-            result =  await userRepository.findAndCount({select:['id','role','name','surname','createdAt','sexo','username','dni']});
+            result =  await userRepository.findAndCount(
+                {
+                    select:['id','role','name','surname','createdAt','sexo','username','dni'],
+                    order:{
+                        name:'ASC'                        
+                    }
+                }
+            );
         } catch (error) {
             res.status(500).json({message:'Somenthing goes wrong!'});
         }        
@@ -32,7 +39,7 @@ export class UserController {
     }
 
     static newUser = async(req:Request, res:Response) => {
-        const {username, password, name, surname, role, sexo,  dni} = req.body;        
+        const {avatar, username, password, name, surname, role, sexo,  dni} = req.body;        
         const user = new User();
         user.username = username;
         user.name = name;
@@ -41,6 +48,7 @@ export class UserController {
         user.dni = dni;        
         user.password = password;          
         user.role = role;
+        user.avatar = avatar;
         const validationOptions = {validationError:{target:false, value:false}};
         const errors =await validate(user,validationOptions);
         if(errors.length){

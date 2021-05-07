@@ -6,7 +6,7 @@ import config from '../config/config';
 
 const router = Router();
 //get all users
-router.get('/', [checkJwt, checkRole([config.Roles.admin])], UserController.getAll);
+router.get('/', [checkJwt], UserController.getAll);
 //get one user
 router.get('/:id', [checkJwt, checkRole([config.Roles.admin])], UserController.getById);
 //Create new user

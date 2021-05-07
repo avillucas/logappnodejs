@@ -42,6 +42,11 @@ export class User {
     @MaxLength(1)
     sexo: string;
 
+    @Column({ nullable: true, type:'varchar', default:null, length:1 })    
+    @MinLength(1)
+    @MaxLength(1)
+    avatar: string;
+
     @Column()
     @CreateDateColumn()
     createdAt: Date;
